@@ -53,4 +53,6 @@
 [GEN] 버튼 클릭시 > "q!XA@GpUfdiS9pIg" 를 클립보드에 넣어준다. <br />
 ID를 더블클릭하면 ID도 클립보드에 넣어준다. <br />
 
-
+- 유튜브 영상 <br />
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/e3SOWvpvwCE/0.jpg)](https://youtu.be/e3SOWvpvwCE?t=0s)
+ 
