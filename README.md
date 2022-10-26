@@ -38,12 +38,7 @@
  4. 비밀번호를 마지막으로 꺼낼때 선택된 위치의 특수문자를 섞어서 뽑아낸다.
  
  string publicKey = StartForm.PWD + "_"+ GUID + "_" + SubKEY; 
- string pwd = Encrypt.EncSHA1(publicKey.Trim(), "^" + SiteName + "＠" + UID + "$");
-
- // 다음 특수문자로 설정된 위치 문자교환!
- // 특수문자는 사이트 처음 생성시 섞어서 설정됨. -- 이후 섞이지 않음. 
- //입력된 비밀번호에 대한 키 조합 : {드라이브 시리얼} + {사이트 사용자아이디}
- string pwd = Data.InputPWD.Dec(KeyData.SubKEY + Data.UID); 
+ string pwd = Encrypt.EncSHA1(publicKey.Trim(), "^" + SiteName + "＠" + UID + "$"); 
 ```
 
 매번 생성을 누르면 계속 다른 문자들로 비밀번호를 생성하여 준다. <br />
