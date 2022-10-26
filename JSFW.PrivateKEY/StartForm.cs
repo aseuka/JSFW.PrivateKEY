@@ -412,6 +412,7 @@ namespace JSFW.PrivateKEY
                 newData.SPECIAL = SPECIAL;
                 newData.SpecialNumberIndexs.Clear();
                 newData.SpecialNumberIndexs.AddRange( SpecialNumberIndexs.ToArray() );
+                newData.LenPWD = LenPWD;
                 return newData;
             }
         }
