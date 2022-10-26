@@ -1,0 +1,19 @@
+﻿ 
+ //파일 전체 암호화 : {처음 입력된 비밀번호} + {드라이브 시리얼}
+ content.Enc(StartForm.PWD + KeyData.SubKEY);
+
+ //비밀번호 생성 : ( {처음 입력된 비밀번호} + {고정된 특정 문자열} ) <-- 암호화 대상,  ^{사이트명}＠{사용자아이디}$ <-- 암호화 키
+ string publicKey = StartForm.PWD + "_1234657980_" + SubKEY; 
+ string pwd = Encrypt.EncSHA1(publicKey.Trim(), "^" + SiteName + "＠" + UID + "$");
+
+ // 다음 특수문자로 설정된 위치 문자교환!
+
+ // 특수문자는 사이트 처음 생성시 섞어서 설정됨. -- 이후 섞이지 않음.
+ 
+ //입력된 비밀번호에 대한 키 조합 : {드라이브 시리얼} + {사이트 사용자아이디}
+ string pwd = Data.InputPWD.Dec(KeyData.SubKEY + Data.UID);
+
+
++ 추가 
+	- 비밀번호 자동생성에 GUID를 추가
+	- 비밀번호 자동생성에 숫자 1자리( 반드시 ) 추가
