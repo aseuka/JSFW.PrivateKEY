@@ -40,8 +40,24 @@ namespace JSFW.PrivateKEY
                              && mData.Datas.Any(d => d.GUID == selGUID))
                         {
                             InData selData = mData.Datas.Find(f => f.GUID == selGUID);
-                            Clipboard.SetText(("" + selData.InputPWD).Dec(KeyData.SubKEY + selData.UID).Trim());
-                            "복사완료!".Alert();
+                            string newPWD = "";
+                            if (selData.IsInputPWD)
+                            {
+                                newPWD = ("" + selData.InputPWD).Dec(KeyData.SubKEY + selData.UID).Trim();
+                            }
+                            else
+                            {
+                                newPWD = selData.CreatePrivateKey();
+                            }
+
+                            if (!string.IsNullOrWhiteSpace(newPWD))
+                            {
+                                Clipboard.SetText(newPWD.Trim());
+                                "복사완료!".Alert();
+                            }
+                            else {
+                                "비밀번호 복사 에러!".Alert();
+                            }
                         }
                         else
                         {
