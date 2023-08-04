@@ -54,7 +54,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>88E279BD4E38161375BB34FB2C3FD69006D376D5</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>5282E92CE388096F2C82909C9E2A334AAF3263AB</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>JSFW.PrivateKEY_TemporaryKey.pfx</ManifestKeyFile>
