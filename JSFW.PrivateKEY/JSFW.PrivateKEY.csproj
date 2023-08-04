@@ -25,9 +25,9 @@
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>http://aseuka.tistory.com/</InstallUrl>
-    <MinimumRequiredVersion>1.0.0.19</MinimumRequiredVersion>
-    <ApplicationRevision>19</ApplicationRevision>
-    <ApplicationVersion>1.0.0.19</ApplicationVersion>
+    <MinimumRequiredVersion>1.0.0.20</MinimumRequiredVersion>
+    <ApplicationRevision>20</ApplicationRevision>
+    <ApplicationVersion>1.0.0.20</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -44,7 +44,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -169,7 +169,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\pwd.ico" />
+    <Content Include="Resources\pwd.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="설명.txt" />
     <None Include="Resources\Key.png" />
     <Content Include="TestTargetFile.txt" />

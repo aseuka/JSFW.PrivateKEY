@@ -71,7 +71,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 30);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(424, 490);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(443, 490);
             this.flowLayoutPanel1.TabIndex = 3;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -80,7 +80,7 @@
             this.btnItemAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnItemAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnItemAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnItemAdd.Location = new System.Drawing.Point(356, 6);
+            this.btnItemAdd.Location = new System.Drawing.Point(375, 6);
             this.btnItemAdd.Name = "btnItemAdd";
             this.btnItemAdd.Size = new System.Drawing.Size(32, 21);
             this.btnItemAdd.TabIndex = 2;
@@ -93,7 +93,7 @@
             this.btnItemDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnItemDel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnItemDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnItemDel.Location = new System.Drawing.Point(394, 6);
+            this.btnItemDel.Location = new System.Drawing.Point(413, 6);
             this.btnItemDel.Name = "btnItemDel";
             this.btnItemDel.Size = new System.Drawing.Size(32, 21);
             this.btnItemDel.TabIndex = 3;
@@ -106,7 +106,7 @@
             this.btnDelOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelOK.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnDelOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelOK.Location = new System.Drawing.Point(356, 6);
+            this.btnDelOK.Location = new System.Drawing.Point(375, 6);
             this.btnDelOK.Name = "btnDelOK";
             this.btnDelOK.Size = new System.Drawing.Size(32, 21);
             this.btnDelOK.TabIndex = 2;
@@ -119,7 +119,7 @@
             this.btnDelCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnDelCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelCancel.Location = new System.Drawing.Point(394, 6);
+            this.btnDelCancel.Location = new System.Drawing.Point(413, 6);
             this.btnDelCancel.Name = "btnDelCancel";
             this.btnDelCancel.Size = new System.Drawing.Size(32, 21);
             this.btnDelCancel.TabIndex = 2;
@@ -173,7 +173,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(428, 548);
+            this.ClientSize = new System.Drawing.Size(447, 548);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPWDChange);
             this.Controls.Add(this.btnPWDChange);
