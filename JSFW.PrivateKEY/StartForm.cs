@@ -26,7 +26,9 @@ namespace JSFW.PrivateKEY
 
         internal static bool isDebug = false;
 
-        public StartForm()
+        private string ctorArgs_FilePath = "";
+
+        public StartForm() 
         {
             InitializeComponent(); 
             IsNEWFILE = false;
@@ -35,6 +37,10 @@ namespace JSFW.PrivateKEY
             SetDEBUG();
         }
 
+        public StartForm(string filePath) : this()
+        {
+            ctorArgs_FilePath = filePath;
+        }
 
         [Conditional("DEBUG")]
         private void SetDEBUG()
@@ -112,25 +118,34 @@ namespace JSFW.PrivateKEY
                 else
                 {
                     Properties.Settings.Default.Reload();
-                    using (OpenFileDialog ofd = new OpenFileDialog())
+
+                    if (string.IsNullOrWhiteSpace(ctorArgs_FilePath)
+                        || File.Exists(ctorArgs_FilePath) == false)
                     {
-                        ofd.InitialDirectory = Properties.Settings.Default.InitialDirectory; 
-                        ofd.Multiselect = false;
-                        ofd.Filter = ""; // 확장자를 뭘로 쓸까? .txt?
-                        if (ofd.ShowDialog() == DialogResult.OK)
+                        using (OpenFileDialog ofd = new OpenFileDialog())
                         {
-                            Properties.Settings.Default.InitialDirectory = Path.GetDirectoryName(ofd.FileName);
-                            Properties.Settings.Default.Save();
-                            StartForm.FilePath = ofd.FileName;
-                        }
-                        else
-                        {
-                            StartForm.FilePath = "";
-                            return;
+                            ofd.InitialDirectory = Properties.Settings.Default.InitialDirectory;
+                            ofd.Multiselect = false;
+                            ofd.Filter = ""; // 확장자를 뭘로 쓸까? .txt?
+                            if (ofd.ShowDialog() == DialogResult.OK)
+                            {
+                                Properties.Settings.Default.InitialDirectory = Path.GetDirectoryName(ofd.FileName);
+                                Properties.Settings.Default.Save();
+                                StartForm.FilePath = ofd.FileName;
+                            }
+                            else
+                            {
+                                StartForm.FilePath = "";
+                                return;
+                            }
                         }
                     }
+                    else
+                    {
+                        StartForm.FilePath = ctorArgs_FilePath;
+                    }
                 }
-                 
+                
                 if (!File.Exists(StartForm.FilePath))
                 {
                     "선택한 파일이 없음!".Alert();

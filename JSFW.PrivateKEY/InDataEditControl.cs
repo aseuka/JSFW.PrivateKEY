@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static JSFW.PrivateKEY.StartForm;
+using System.IO;
 
 namespace JSFW.PrivateKEY
 {
@@ -115,6 +116,48 @@ namespace JSFW.PrivateKEY
                 if (!string.IsNullOrEmpty(newPWD.Trim()))
                 {
                     Clipboard.SetText(newPWD); "복사완료!".Alert();
+                }
+            }
+        }
+
+        private void btnLink_Click(object sender, EventArgs e)
+        {
+            // 바로가기 만들기!!
+            CreateDesckTopShortcut(Data.GUID, Data.SiteName);
+        }
+
+
+        private void CreateDesckTopShortcut(string guid, string siteName )
+        {
+            if (string.IsNullOrEmpty(("" + guid).Trim()) == false)
+            {
+                if (string.IsNullOrWhiteSpace(siteName)) {
+                    siteName = "사이트명";
+                }
+
+                /*
+                   바로가기 만들기!
+                   [참조] - C:\Windows\System32\Shell32.dll [추가]
+                */
+                string MMPS_Application_FolderPath = Application.ExecutablePath;
+                string MMPS_DiskTop_Path = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+                string Application_ShortCut_Name = siteName;
+                Shell32.Shell ShellClass_iNstance = new Shell32.Shell();
+                if (File.Exists(MMPS_DiskTop_Path + @"\" + Application_ShortCut_Name + ".lnk"))
+                    File.Delete(MMPS_DiskTop_Path + @"\" + Application_ShortCut_Name + ".lnk");
+
+                using (System.IO.StreamWriter StreamWriter_iNstance = new System.IO.StreamWriter(MMPS_DiskTop_Path + @"\" + Application_ShortCut_Name + ".lnk", false))
+                {
+                    StreamWriter_iNstance.Close();
+                    Shell32.Folder DeskTop_Folder = ShellClass_iNstance.NameSpace(MMPS_DiskTop_Path);
+                    Shell32.FolderItem DeskTop_FolderiTem = DeskTop_Folder.Items().Item(Application_ShortCut_Name + ".lnk");
+                    Shell32.ShellLinkObject ShortCut_Link = (Shell32.ShellLinkObject)DeskTop_FolderiTem.GetLink;
+                    ShortCut_Link.Path = MMPS_Application_FolderPath;
+                    ShortCut_Link.Arguments = @"""""" + StartForm.FilePath.Trim() + @""""" " + @"""""" + guid.Trim() + @"""""";
+                    ShortCut_Link.Description = Application_ShortCut_Name;
+                    ShortCut_Link.SetIconLocation(@"D:\.net source\JSFW\JSFW.PrivateKEY\Resources\pwd.ico", 0);
+                    ShortCut_Link.WorkingDirectory = Environment.CurrentDirectory + "\\";
+                    ShortCut_Link.Save();
                 }
             }
         }

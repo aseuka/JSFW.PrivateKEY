@@ -34,7 +34,7 @@ namespace JSFW.PrivateKEY
         {
             this.IsNEWFILE = isnewFile;
         }
-
+         
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             KeyData.SubKEY = null;
@@ -54,22 +54,29 @@ namespace JSFW.PrivateKEY
             else
             {
                 string content = "";
-                if (File.Exists(StartForm.FilePath))
-                {
-
-                    if (StartForm.isDebug)
-                    {
-                        content = File.ReadAllText($@"{StartForm.FilePath}.bak", Encoding.UTF8);
-                    }
-                    else
-                    {
-                        content = File.ReadAllText(StartForm.FilePath, Encoding.UTF8);
-                        content = content.Dec(StartForm.PWD + KeyData.SubKEY);
-                    }
-                }
-                MainData = content.DeSerialize<KeyData>(); 
-            } 
+                content = ReadKeyPwdContent(content);
+                MainData = content.DeSerialize<KeyData>();
+            }
             DataBind();
+        }
+
+        internal static string ReadKeyPwdContent(string content)
+        {
+            if (File.Exists(StartForm.FilePath))
+            {
+
+                if (StartForm.isDebug)
+                {
+                    content = File.ReadAllText($@"{StartForm.FilePath}.bak", Encoding.UTF8);
+                }
+                else
+                {
+                    content = File.ReadAllText(StartForm.FilePath, Encoding.UTF8);
+                    content = content.Dec(StartForm.PWD + KeyData.SubKEY);
+                }
+            }
+
+            return content;
         }
 
         private void DataBind()
@@ -81,7 +88,7 @@ namespace JSFW.PrivateKEY
                 newInDataEditor.SetInData(inData);
                 flowLayoutPanel1.Controls.Add(newInDataEditor);
                 newInDataEditor.MouseDown += NewInDataEditor_MouseDown;
-                newInDataEditor.MouseDoubleClick += NewInDataEditor_MouseDoubleClick;
+                newInDataEditor.MouseDoubleClick += NewInDataEditor_MouseDoubleClick; 
             }
         }
          

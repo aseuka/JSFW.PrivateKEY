@@ -34,6 +34,7 @@ namespace JSFW.PrivateKEY
             this.btnGEN = new System.Windows.Forms.Button();
             this.txtSiteName = new JSFW.PREZI.Controls.Label();
             this.txtUID = new JSFW.PREZI.Controls.Label();
+            this.btnLink = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // chkSelect
@@ -54,7 +55,7 @@ namespace JSFW.PrivateKEY
             this.btnGEN.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnGEN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGEN.ForeColor = System.Drawing.Color.White;
-            this.btnGEN.Location = new System.Drawing.Point(301, 2);
+            this.btnGEN.Location = new System.Drawing.Point(331, 2);
             this.btnGEN.Name = "btnGEN";
             this.btnGEN.Size = new System.Drawing.Size(41, 22);
             this.btnGEN.TabIndex = 0;
@@ -67,7 +68,7 @@ namespace JSFW.PrivateKEY
             this.txtSiteName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSiteName.Location = new System.Drawing.Point(21, 2);
             this.txtSiteName.Name = "txtSiteName";
-            this.txtSiteName.Size = new System.Drawing.Size(164, 22);
+            this.txtSiteName.Size = new System.Drawing.Size(194, 22);
             this.txtSiteName.TabIndex = 0;
             this.txtSiteName.Text = "Site Name";
             this.txtSiteName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -78,7 +79,7 @@ namespace JSFW.PrivateKEY
             // 
             this.txtUID.AutoEllipsis = true;
             this.txtUID.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtUID.Location = new System.Drawing.Point(185, 2);
+            this.txtUID.Location = new System.Drawing.Point(215, 2);
             this.txtUID.Name = "txtUID";
             this.txtUID.Size = new System.Drawing.Size(116, 22);
             this.txtUID.TabIndex = 0;
@@ -88,6 +89,20 @@ namespace JSFW.PrivateKEY
             this.txtUID.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txtUID_MouseDoubleClick);
             this.txtUID.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txtUID_MouseDown);
             // 
+            // btnLink
+            // 
+            this.btnLink.BackColor = System.Drawing.Color.Brown;
+            this.btnLink.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnLink.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLink.ForeColor = System.Drawing.Color.White;
+            this.btnLink.Location = new System.Drawing.Point(372, 2);
+            this.btnLink.Name = "btnLink";
+            this.btnLink.Size = new System.Drawing.Size(41, 22);
+            this.btnLink.TabIndex = 2;
+            this.btnLink.Text = "Link";
+            this.btnLink.UseVisualStyleBackColor = false;
+            this.btnLink.Click += new System.EventHandler(this.btnLink_Click);
+            // 
             // InDataEditControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -96,9 +111,10 @@ namespace JSFW.PrivateKEY
             this.Controls.Add(this.txtUID);
             this.Controls.Add(this.chkSelect);
             this.Controls.Add(this.btnGEN);
+            this.Controls.Add(this.btnLink);
             this.Name = "InDataEditControl";
             this.Padding = new System.Windows.Forms.Padding(4, 2, 2, 2);
-            this.Size = new System.Drawing.Size(344, 26);
+            this.Size = new System.Drawing.Size(415, 26);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,5 +126,6 @@ namespace JSFW.PrivateKEY
         private JSFW.PREZI.Controls.Label txtUID;
         private System.Windows.Forms.CheckBox chkSelect;
         private System.Windows.Forms.Button btnGEN;
+        private System.Windows.Forms.Button btnLink;
     }
 }
