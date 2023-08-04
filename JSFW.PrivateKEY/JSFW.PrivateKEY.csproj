@@ -25,9 +25,9 @@
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>http://aseuka.tistory.com/</InstallUrl>
-    <MinimumRequiredVersion>1.0.0.18</MinimumRequiredVersion>
-    <ApplicationRevision>18</ApplicationRevision>
-    <ApplicationVersion>1.0.0.18</ApplicationVersion>
+    <MinimumRequiredVersion>1.0.0.19</MinimumRequiredVersion>
+    <ApplicationRevision>19</ApplicationRevision>
+    <ApplicationVersion>1.0.0.19</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>

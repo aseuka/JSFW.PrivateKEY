@@ -155,7 +155,7 @@ namespace JSFW.PrivateKEY
                     ShortCut_Link.Path = MMPS_Application_FolderPath;
                     ShortCut_Link.Arguments = @"""""" + StartForm.FilePath.Trim() + @""""" " + @"""""" + guid.Trim() + @"""""";
                     ShortCut_Link.Description = Application_ShortCut_Name;
-                    ShortCut_Link.SetIconLocation(@"D:\.net source\JSFW\JSFW.PrivateKEY\Resources\pwd.ico", 0);
+                    ShortCut_Link.SetIconLocation( Path.Combine( Application.StartupPath, @"Resources\pwd.ico" ), 0);
                     ShortCut_Link.WorkingDirectory = Environment.CurrentDirectory + "\\";
                     ShortCut_Link.Save();
                 }
