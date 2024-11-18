@@ -21,10 +21,13 @@ namespace JSFW.PrivateKEY
 
             string filePath = "";
             string selGUID = "";
+            string selSiteName = "";
 
-            if (args != null) {
+            if (args != null)
+            {
                 if (0 < args.Length) filePath = args[0].Trim();
                 if (1 < args.Length) selGUID = args[1].Trim();
+                if (2 < args.Length) selSiteName = args[2].Trim();
             }
 
             using (var login = new StartForm(filePath))
@@ -36,10 +39,10 @@ namespace JSFW.PrivateKEY
                         string content = "";
                         content = MainForm.ReadKeyPwdContent(content);
                         StartForm.KeyData mData = content.DeSerialize<StartForm.KeyData>();
-                        if (string.IsNullOrWhiteSpace(selGUID) == false
-                             && mData.Datas.Any(d => d.GUID == selGUID))
+                        if (string.IsNullOrWhiteSpace(selSiteName) == false
+                             && mData.Datas.Any(d => d.SiteName == selSiteName))
                         {
-                            InData selData = mData.Datas.Find(f => f.GUID == selGUID);
+                            InData selData = mData.Datas.Find(f => f.SiteName == selSiteName);
                             string newPWD = "";
                             if (selData.IsInputPWD)
                             {
@@ -55,7 +58,8 @@ namespace JSFW.PrivateKEY
                                 Clipboard.SetText(newPWD.Trim());
                                 "복사완료!".Alert();
                             }
-                            else {
+                            else
+                            {
                                 "비밀번호 복사 에러!".Alert();
                             }
                         }

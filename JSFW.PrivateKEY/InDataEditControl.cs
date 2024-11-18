@@ -14,14 +14,14 @@ namespace JSFW.PrivateKEY
 {
     public partial class InDataEditControl : UserControl
     {
-        internal InData Data { get; private set; } 
+        internal InData Data { get; private set; }
 
         public bool IsSelected
         {
             get { return chkSelect.Checked; }
             private set { chkSelect.Checked = value; }
         }
-         
+
         public InDataEditControl()
         {
             InitializeComponent();
@@ -37,26 +37,26 @@ namespace JSFW.PrivateKEY
         public void SetInData(InData data)
         {
             try
-            { 
+            {
                 Data = data;
                 DataBind();
             }
             finally
             {
-                
+
             }
         }
 
         private void DataBind()
-        {  
+        {
             DataClear();
             if (Data != null)
             {
                 txtSiteName.Text = Data.SiteName;
-                txtUID.Text = Data.UID.LastMasking(); 
+                txtUID.Text = Data.UID.LastMasking();
             }
         }
-         
+
         private void DataClear()
         {
             txtSiteName.ResetText();
@@ -74,7 +74,7 @@ namespace JSFW.PrivateKEY
             chkSelect.Checked = false;
             chkSelect.Visible = false;
         }
-            
+
         private void txtSiteName_MouseDown(object sender, MouseEventArgs e)
         {
             OnMouseDown(e);
@@ -84,7 +84,7 @@ namespace JSFW.PrivateKEY
         {
             OnMouseDown(e);
         }
- 
+
         private void txtSiteName_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             OnMouseDoubleClick(e);
@@ -127,11 +127,12 @@ namespace JSFW.PrivateKEY
         }
 
 
-        private void CreateDesckTopShortcut(string guid, string siteName )
+        private void CreateDesckTopShortcut(string guid, string siteName)
         {
             if (string.IsNullOrEmpty(("" + guid).Trim()) == false)
             {
-                if (string.IsNullOrWhiteSpace(siteName)) {
+                if (string.IsNullOrWhiteSpace(siteName))
+                {
                     siteName = "사이트명";
                 }
 
@@ -153,9 +154,9 @@ namespace JSFW.PrivateKEY
                     Shell32.FolderItem DeskTop_FolderiTem = DeskTop_Folder.Items().Item(Application_ShortCut_Name + ".lnk");
                     Shell32.ShellLinkObject ShortCut_Link = (Shell32.ShellLinkObject)DeskTop_FolderiTem.GetLink;
                     ShortCut_Link.Path = MMPS_Application_FolderPath;
-                    ShortCut_Link.Arguments = @"""""" + StartForm.FilePath.Trim() + @""""" " + @"""""" + guid.Trim() + @"""""";
+                    ShortCut_Link.Arguments = @"""""" + StartForm.FilePath.Trim() + @""""" " + @"""""" + guid.Trim() + @""""" " + @"""""" + Application_ShortCut_Name.Trim() + @"""""";
                     ShortCut_Link.Description = Application_ShortCut_Name;
-                    ShortCut_Link.SetIconLocation( Path.Combine( Application.StartupPath, @"Resources\pwd.ico" ), 0);
+                    ShortCut_Link.SetIconLocation(Path.Combine(Application.StartupPath, @"Resources\pwd.ico"), 0);
                     ShortCut_Link.WorkingDirectory = Environment.CurrentDirectory + "\\";
                     ShortCut_Link.Save();
                 }
